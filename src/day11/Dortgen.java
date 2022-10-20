@@ -1,21 +1,38 @@
 package day11;
 
+import java.util.Scanner;
+
 public class Dortgen {
+
     public static void main(String[] args) {
-        //TODO: Dortgen programını geliştiriniz.
-        /*
-            1. Klavyeden 3 adet girdi alınacaktır.
-                kenar:int       -> Karenin kenarı
-                kisaKenar:int   -> Dikdörtgenin kısa kenarı
-                uzunKenar:int   -> Dikdörtgenin uzun kenarı
-            2. alanHesapla(int k1, int k2):int  -> Metodu geliştirilecektir.
-            3. Tek bir metot (alanHesapla) iki kez çağırılarak hem karenin hem de
-            dikdörtgenin alanı hesaplanacaktır.
-            4. cevreHesapla(int k1,int k2):int  -> Metodu geliştirilecektir.
-            5. Tek bir metot (cevreHesapla) iki kez çağırılarak hem karenin hem de
-            dikdörtgenin çevresi hesaplanacaktır.
-            6. Elde edilen toplam alan hesaplanıp ekranda gösterilecektir.
-            7. Elde edilen toplam çevre ekranda gösterilecektir.
-         */
+        Scanner input = new Scanner(System.in);
+        System.out.print("Square Side: ");
+        int side = input.nextInt();
+        System.out.print("Rectangle Long Side: ");
+        int longSide = input.nextInt();
+        System.out.print("Rectangle Short Side: ");
+        int shortSide = input.nextInt();
+
+        int squareSArea = areaCalculate(side, side);
+        int rectangleArea = areaCalculate(longSide, shortSide);
+
+        int squarePerimeter = perimeterCalculate(side, side);
+        int rectanglePerimeter = perimeterCalculate(longSide, shortSide);
+
+
+        int totalArea = squareSArea + rectangleArea;
+        int totalPerimeter = squarePerimeter + rectanglePerimeter;
+        System.out.println("Total Area: " + totalArea);
+        System.out.println("Total Perimeter: " + totalPerimeter);
+
     }
+
+    public static int areaCalculate(int side1, int side2) {
+        return side1 * side2;
+    }
+
+    public static int perimeterCalculate(int side1, int side2) {
+        return (side1 + side2) * 2;
+    }
+
 }
